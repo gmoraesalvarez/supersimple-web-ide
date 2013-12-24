@@ -1,0 +1,50 @@
+#arquivos{
+	margin:auto;
+    float:left;
+    width:100%;
+	}
+#pastas{
+	margin:auto;
+    float:left;
+    width:100%;
+	}
+a   {
+    height:128px;
+    width:128px;
+    float:left;
+    margin-left:4px;
+    margin-right:4px;
+    margin-bottom:4px;
+    color: #fff;
+    text-decoration: none;
+    text-shadow:1px 1px 1px black;
+    text-align:center;
+    word-wrap: break-word;
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    }
+a:hover{
+    color: #fdfdfd;
+    background: #555;
+    }
+.dir{
+    background:#888 url('folder64.png') center no-repeat;
+    }
+.dir:hover{
+    color: #fdfdfd;
+    background: #555 url('folder64.png') center no-repeat;;
+    }
+.file{
+    background:#888 url('text64.png') center no-repeat;
+    }
+.file:hover{
+    color: #fdfdfd;
+    background: #555 url('text64.png') center no-repeat;;
+    }
+/****************/
+body {
+  height:100%;
+  background:#4b4b4b;
+  color:#eee8d5;
+  font-family: Droid Sans, Arial, sans-serif;
+}
