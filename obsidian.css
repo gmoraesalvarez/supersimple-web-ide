@@ -1,0 +1,40 @@
+/*
+Based on eclipse's theme
+Should go into the 'theme' folder with the other codemirror themes.
+*/
+
+.cm-s-obsidian.CodeMirror {background: #293134; color: #e0e2e4;}
+.cm-s-obsidian div.CodeMirror-selected {background: #804000 !important;}
+.cm-s-obsidian .CodeMirror-gutters {background: #4e4e4e; border-right: 0px;}
+.cm-s-obsidian .CodeMirror-linenumber {color: #dadada;}
+.cm-s-obsidian .CodeMirror-cursor {border-left: 1px solid #ffffec !important;}
+
+.cm-s-obsidian span.cm-comment {color: #7d8c93;}
+.cm-s-obsidian span.cm-atom {color: #00a8c6;}
+.cm-s-obsidian span.cm-number {color: #ffcd22;}
+
+.cm-s-obsidian span.cm-property, .cm-s-obsidian span.cm-attribute {color: #e0e2e4;}
+.cm-s-obsidian span.cm-keyword {color: #93c763;}
+.cm-s-obsidian span.cm-string {color: #ec7600;}
+
+.cm-s-obsidian span.cm-variable {color: #e0e2e4;}
+.cm-s-obsidian span.cm-variable-2 {color: #e0e2e4;}
+.cm-s-obsidian span.cm-def {color: #e8e2e7;}
+.cm-s-obsidian span.cm-bracket {color: #e8e2b7; font-weight: bold;}
+.cm-s-obsidian span.cm-tag {color: #678cb1;}
+.cm-s-obsidian span.cm-link {color: #ff8bff;}
+.cm-s-obsidian span.cm-error {background: #636363; color: #ffffec;}
+
+.cm-s-obsidian .CodeMirror-activeline-background {background: #2f393c !important;}
+.cm-s-obsidian .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: #e8e2b7 !important;
+ }
+ 
+.cm-s-obsidian .CodeMirror-matchingtag {background: #7d8c93;}
+
+div.CodeMirror span.CodeMirror-searching {
+  background-color: none;
+  background: none;
+  box-shadow: 0 0 0 1px #ffffec;
+}
