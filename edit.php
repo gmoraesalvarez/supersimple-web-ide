@@ -1,5 +1,9 @@
 <?php 
     $doc='nil';
+    $fsize=11;
+    if (isset($_GET['f'])){
+        $fsize=$_GET['f'];
+        }
     if (isset($_GET['doc']))
 		{
 			$doc = $_GET['doc'];
@@ -60,24 +64,28 @@
 <link rel="stylesheet" href="theme/vibrant-ink.css">
 <link rel="stylesheet" href="theme/xq-dark.css">
 <link rel="stylesheet" href="theme/xq-light.css">
+        <link rel="stylesheet" href="addon/dialog/dialog.css">
 		<link rel="stylesheet" href="corpo.css">
         <script src="lib/codemirror.js"></script>
         <script src="keymap/extra.js"></script>
 		<script src="addon/edit/matchbrackets.js"></script>
         <script src="addon/selection/active-line.js"></script>
+        <script src="addon/search/search.js"></script>
+        <script src="addon/search/searchcursor.js"></script>
+        <script src="addon/dialog/dialog.js"></script>
 		<script src="mode/htmlmixed/htmlmixed.js"></script>
 		<script src="mode/xml/xml.js"></script>
 		<script src="mode/javascript/javascript.js"></script>
 		<script src="mode/css/css.js"></script>
 		<script src="mode/clike/clike.js"></script>
 		<script src="mode/php/php.js"></script>
-		<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+		<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;font-size:<?=$fsize?>px;}</style>
 	</head>
 	<body>
         <div id="bar">
             <select onchange="setfsize()" name="fsize" id="fsize">
                 <option>8</option>
-                <option>9</option>option>
+                <option>9</option>
                 <option selected>10</option>
                 <option>11</option>
                 <option>12</option>
@@ -154,6 +162,7 @@
                 var size = fsize.options[fsize.selectedIndex].innerHTML;
                 var editor = document.getElementsByClassName('CodeMirror');
                 editor[0].style.fontSize=size+'px';
+                document.getElementById('text').action = "edit.php?doc=<? echo $doc ?>&f="+size;
                 }
             var input = document.getElementById("select");
             var theme = '<? if(isset($_POST["select"])) { echo $_POST["select"];} else {echo 'obsidian';}?>';
