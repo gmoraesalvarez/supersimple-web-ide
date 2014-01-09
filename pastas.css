@@ -9,15 +9,15 @@
     width:100%;
 	}
 a   {
-    height:128px;
-    width:128px;
+    height:96px;
+    width:96px;
     float:left;
     margin-left:4px;
     margin-right:4px;
     margin-bottom:4px;
     color: #fff;
     text-decoration: none;
-    text-shadow:1px 1px 1px black;
+    text-shadow:2px 2px 2px black;
     text-align:center;
     word-wrap: break-word;
     transition: all 0.2s ease-out;
