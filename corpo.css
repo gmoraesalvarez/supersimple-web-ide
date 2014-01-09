@@ -4,6 +4,7 @@ body {height:100%;width:100%;margin:0;background:#4b4b4b; color:#eee8d5; font-fa
 #code1{height:100%}
 #tit {} 
 #bar {float:right}
+iframe{border:none; float:left;max-width:100px;max-height:20px;margin:2px;}
 .CodeMirror{height:95%;font-size:10px;}
 /****************/
 h1 { letter-spacing: -3px;font-size: 3.23em; font-weight: bold; margin: 0;}
