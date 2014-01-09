@@ -11,22 +11,7 @@
             $ext = $path['extension'];
             $name = $path['basename'];
         }
-    $pronto='';
-    if (isset($_POST['code1'])){
-        $pronto="got post.";
-        $filename = $doc;
-        $text = trim($_POST['code1']);
-        $fp = fopen ($filename, "w");
-        if ($fp) {
-            $ip=$_SERVER['REMOTE_ADDR'];
-            fwrite ($fp, $text);
-            fclose ($fp);
-           	$pronto="Saved.";
-            }
-        else {
-            $pronto="Couldn't save. :/";
-            }   
-        }
+    
     if ($doc != 'nil') { $text = file_get_contents($doc); }
 ?>
 <!doctype html>
@@ -83,6 +68,7 @@
 	</head>
 	<body>
         <div id="bar">
+            <iframe id="saver" name="saveit"></iframe>
             <select onchange="setfsize()" name="fsize" id="fsize">
                 <option>8</option>
                 <option>9</option>
@@ -129,9 +115,9 @@
                 <option>xq-light</option>
             </select>
         </div>
-        <form id="text" action="edit.php?doc=<? echo $doc ?>" method="post">
+        <form id="text" action="save.php?doc=<? echo $doc ?>" target="saveit"  method="post">
             <input id="save" type="submit" id="save" value="Salvar" />      
-            <span id="tit"><? echo $pronto.' '.$doc ?></span> 
+            <span id="tit"><? echo $doc ?></span> 
             <textarea id="code1" name="code1">
             <?
             echo $text;
