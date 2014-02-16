@@ -12,7 +12,7 @@
             $name = $path['basename'];
         }
     
-    if ($doc != 'nil') { $text = file_get_contents($doc); }
+    if ($doc != 'nil') { $text = file_get_contents($doc); $text = str_replace('/','&#x2F;',$text); }
 ?>
 <!doctype html>
 <html>
