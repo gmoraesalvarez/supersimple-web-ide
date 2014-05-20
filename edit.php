@@ -1,4 +1,4 @@
-<?php 
+            <?php 
     $doc='nil';
     $fsize=11;
     if (isset($_GET['f'])){
@@ -10,9 +10,11 @@
             $path = pathinfo($doc);
             $ext = $path['extension'];
             $name = $path['basename'];
+			if ($ext=='html') {$ext='php';}
+			if ($ext=='js') {$ext='javascript';}
         }
     
-    if ($doc != 'nil') { $text = file_get_contents($doc); $text = str_replace('/','&#x2F;',$text); }
+    if ($doc != 'nil') { $text = file_get_contents($doc); $text = str_replace('/','/',$text); }
 ?>
 <!doctype html>
 <html>
@@ -64,6 +66,7 @@
 		<script src="mode/css/css.js"></script>
 		<script src="mode/clike/clike.js"></script>
 		<script src="mode/php/php.js"></script>
+		<script src="mode/htmlembedded/htmlembedded.js"></script>
 		<style type="text/css">.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;font-size:<?=$fsize?>px;}</style>
 	</head>
 	<body>
@@ -160,4 +163,4 @@
                 }            
 		</script>
     </body>
-</html>
+</html>            
