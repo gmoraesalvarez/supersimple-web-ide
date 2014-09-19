@@ -31,7 +31,7 @@
             </form>     
             <p>Pastas em <?php echo $dir.'<br>';?>
             <form action="index.php?n=2&dir=<? echo $dir ?>" method="POST">
-                <input type="text" value="new_folder" name="new_dir"></input>
+                <input type="text" value="new_folder" name="new_dir">
                 <input type="submit" value="create">
             </form> 
             </p>
@@ -42,15 +42,15 @@
             ?>
         </div>
 		<div id="arquivos">
-            <p>Arquivos&nbsp;
+            <p>Arquivos 
             <form action="index.php?n=1&dir=<? echo $dir ?>" method="POST">
-                <input type="text" value="new_file.php" name="new_file"></input>
+                <input type="text" value="new_file.php" name="new_file">
                 <input type="submit" value="create">
             </form> 
             </p>
 			<?php
 			foreach($files1 as $key => $value){
-                echo $alink.$value.'">'.basename($value).'</a> &nbsp';}
+                echo $alink.$value.'">'.basename($value).'</a>  ';}
 			?>
 		</div>		
   </body>
