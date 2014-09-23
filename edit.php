@@ -124,3 +124,41 @@
             <textarea id="code1" name="code1"><?
             echo $text;
             ?>
+</textarea>
+</form>
+<script>
+var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
+lineNumbers: true,
+matchBrackets: true,
+mode: '<? echo $ext ?>',
+indentUnit: 4,
+indentWithTabs: true,
+enterMode: "keep",
+tabMode: "shift",
+extraKeys: {
+"Ctrl-S": function() {
+saveit();
+}
+}
+});
+function saveit(){
+document.getElementById('save').click();
+}
+var fsize = document.getElementById("fsize");
+function setfsize() {
+var size = fsize.options[fsize.selectedIndex].innerHTML;
+var editor = document.getElementsByClassName('CodeMirror');
+editor[0].style.fontSize=size+'px';
+document.getElementById('text').action = "edit.php?doc=<? echo $doc ?>&f="+size;
+}
+var input = document.getElementById("select");
+var theme = '<? if(isset($_POST["select"])) { echo $_POST["select"];} else {echo 'obsidian';}?>';
+editor1.setOption("theme", theme);
+//input.options[input.selectedIndex].innerHTML = theme;
+function selectTheme() {
+theme = input.options[input.selectedIndex].innerHTML;
+editor1.setOption("theme", theme);
+}
+</script>
+</body>
+</html>
