@@ -14,7 +14,7 @@
 			if ($ext=='js') {$ext='javascript';}
         }
     
-    if ($doc != 'nil') { $text = file_get_contents($doc); $text = str_replace('/','\/',$text); }
+    if ($doc != 'nil') { $text = file_get_contents($doc); $text = str_replace("</textarea>",'<&sol;textarea>',$text); }
 ?>
 <!doctype html>
 <html>
