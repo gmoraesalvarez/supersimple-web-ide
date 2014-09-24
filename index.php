@@ -23,34 +23,21 @@
         <link rel="stylesheet" href="pastas.css">
 	</head>
 	<body>
+		<a style="float:left;min-height:16px;min-width:100px;border:#555 solid 1px;" href="up.php?dir=<? echo $dir ?>"><p>manage files</p></a>     
+           
        <div id="pastas">
-            <form enctype="multipart/form-data" action="uploader.php?dir=<?php echo $dir ?>" method="POST">
-                <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-                Upload: <input name="uploadedfile" type="file" />
-                <input type="submit" value="Upload File" />
-            </form>     
-            <p>Pastas em <?php echo $dir.'<br>';?>
-            <form action="index.php?n=2&dir=<? echo $dir ?>" method="POST">
-                <input type="text" value="new_folder" name="new_dir">
-                <input type="submit" value="create">
-            </form> 
-            </p>
-            <a class="dir" href="index.php?dir=<? echo dirname($dir) ?>/">voltar</a>
+		    <p>folders in <?php echo $dir.'<br>';?></p>
+		   <a class="dir" href="index.php?dir=<? echo dirname($dir) ?>/" style="font-size:32px;">↲</a>
             <?php
                 foreach($dirs as $key => $value){
-                echo '<a class="dir" href="index.php?dir='.$value.'/">'.basename($value).'</a>';}
+                echo '<a class="dir" href="index.php?dir='.$value.'/">'.basename($value).'</a>'."\n";}
             ?>
         </div>
 		<div id="arquivos">
-            <p>Arquivos 
-            <form action="index.php?n=1&dir=<? echo $dir ?>" method="POST">
-                <input type="text" value="new_file.php" name="new_file">
-                <input type="submit" value="create">
-            </form> 
-            </p>
+            <p>files</p>
 			<?php
 			foreach($files1 as $key => $value){
-                echo $alink.$value.'">'.basename($value).'</a>  ';}
+                echo $alink.$value.'">'.basename($value).'</a>'."\n";}
 			?>
 		</div>		
   </body>
