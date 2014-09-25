@@ -4,25 +4,20 @@
     if (isset($_GET['f'])){
         $fsize=$_GET['f'];
         }
-    if (isset($_GET['doc']))
-		{
-			$doc = $_GET['doc'];
-            $path = pathinfo($doc);
-            $ext = $path['extension'];
-            $name = $path['basename'];
-			if ($ext=='html') {$ext='php';}
-			if ($ext=='js') {$ext='javascript';}
+    if (isset($_GET['doc'])){
+	$doc = $_GET['doc'];
+        $path = pathinfo($doc);
+        $ext = $path['extension'];
+        $name = $path['basename'];
+	if ($ext=='html') {$ext='php';}
+	if ($ext=='js') {$ext='javascript';}
         }
     
-     if ($doc != 'nil') {
+    if ($doc != 'nil') {
         $text = file_get_contents($doc);
-        $text = str_replace('"','&quot;',$text);
-        $text = str_replace('<','&lt;',$text);
-        $text = str_replace('>','&gt;',$text);
-        //$text = str_replace('&','&amp;',$text);
-        $text = str_replace("'","&#39;",$text);
+        $text = str_replace('&','&amp;',$text);
+    	$text = str_replace('<','&lt;',$text);
     }
-
 ?>
 <!doctype html>
 <html>
@@ -60,6 +55,7 @@
 <link rel="stylesheet" href="theme/xq-dark.css">
 <link rel="stylesheet" href="theme/xq-light.css">
         <link rel="stylesheet" href="addon/dialog/dialog.css">
+        <link rel="stylesheet" href="addon/hint/show-hint.css">
 		<link rel="stylesheet" href="corpo.css">
         <script src="lib/codemirror.js"></script>
         <script src="keymap/extra.js"></script>
@@ -68,6 +64,9 @@
         <script src="addon/search/search.js"></script>
         <script src="addon/search/searchcursor.js"></script>
         <script src="addon/dialog/dialog.js"></script>
+        <script src="addon/hint/show-hint.js"></script>
+        <script src="addon/hint/javascript-hint.js"></script>
+        <script src="addon/hint/html-hint.js"></script>
 		<script src="mode/htmlmixed/htmlmixed.js"></script>
 		<script src="mode/xml/xml.js"></script>
 		<script src="mode/javascript/javascript.js"></script>
@@ -129,26 +128,20 @@
         <form id="text" action="save.php?doc=<? echo $doc ?>" target="saveit"  method="post">
             <input id="save" type="submit" id="save" value="Salvar" />      
             <span id="tit"><? echo $doc ?></span> 
-            <textarea id="code1" name="code1"><?
-            echo $text;
-            ?>
-</textarea>
-</form>
-<script>
-var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
-lineNumbers: true,
-matchBrackets: true,
-mode: '<? echo $ext ?>',
-indentUnit: 4,
-indentWithTabs: true,
-enterMode: "keep",
-tabMode: "shift",
-extraKeys: {
-"Ctrl-S": function() {
-saveit();
-}
-}
-});
+            <textarea id="code1" name="code1"><? echo $text; ?></textarea>
+		</form>
+		<script>
+			var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
+				lineNumbers: true,
+				matchBrackets: true,
+				mode: '<? echo $ext ?>',
+				indentUnit: 4,
+				indetWithTabs: true,
+				enterMode: "keep",
+				tabMode: "shift",
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+				extraKeys: {"Ctrl-S": function() {saveit();}}
+			});
 function saveit(){
 document.getElementById('save').click();
 }
@@ -167,6 +160,9 @@ function selectTheme() {
 theme = input.options[input.selectedIndex].innerHTML;
 editor1.setOption("theme", theme);
 }
+            
+            
+            
 </script>
 </body>
 </html>
