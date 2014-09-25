@@ -12,7 +12,6 @@ $pronto='';
         $pronto="got post.";
         $filename = $doc;
         $text = trim($_POST['code1']);
-		$text = str_replace('<&sol;textarea >',"</textarea> ",$text);
         $fp = fopen ($filename, "w");
         if ($fp) {
             $ip=$_SERVER['REMOTE_ADDR'];
