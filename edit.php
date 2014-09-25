@@ -14,7 +14,15 @@
 			if ($ext=='js') {$ext='javascript';}
         }
     
-    if ($doc != 'nil') { $text = file_get_contents($doc); $text = str_replace("</textarea>",'<&sol;textarea>',$text); }
+     if ($doc != 'nil') {
+        $text = file_get_contents($doc);
+        $text = str_replace('"','&quot;',$text);
+        $text = str_replace('<','&lt;',$text);
+        $text = str_replace('>','&gt;',$text);
+        //$text = str_replace('&','&amp;',$text);
+        $text = str_replace("'","&#39;",$text);
+    }
+
 ?>
 <!doctype html>
 <html>
