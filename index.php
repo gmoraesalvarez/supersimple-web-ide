@@ -8,7 +8,7 @@
         if ($new=='1') { file_put_contents($dir.'/'.$_POST['new_file'], '/* supersimple-web-ide */'); }
         if ($new=='2') { mkdir($dir.'/'.$_POST['new_dir']);}
         }
-    $files1 = glob($dir . '*.{css,php,htm,html,js,txt}', GLOB_BRACE);
+    $files1 = glob($dir . '*.{css,php,htm,html,js,txt,cfg}', GLOB_BRACE);
 	$dirs = glob($dir . '*', GLOB_ONLYDIR);
     $alink = '<a class="file" target="_blank" href="edit.php?doc=';
     
