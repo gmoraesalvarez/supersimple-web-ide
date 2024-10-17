@@ -1,12 +1,20 @@
-html {height:100%}
-body {height:100%;width:100%;margin:0;background:#4b4b4b; color:#eee8d5; font-family: Droid Sans, Arial, sans-serif; line-height: 1.5;*padding: 0 1em;}
+html {height:100%;scrollbar-color: rebeccapurple green;scrollbar-width: thin;}
+body {height:100%;width:100%;margin:0;background:#4b4b4b; color:#eee8d5; line-height: 1.5;}
 #text{height:100%;}
 #code1{height:100%}
-#tit {} 
-#bar {float:right}
-iframe{border:none; float:left;max-width:100px;max-height:20px;margin:2px;}
-.CodeMirror{height:95%;font-size:10px;}
-/****************/
+
+#bar {position:fixed;bottom:0;right:0;height:40px;}
+iframe{border:none;float:left;max-width:160px;max-height:40px;margin:2px;}
+form {display: flex; flex-direction: column;box-sizing:border-box; align-items:stretch}
+.tit {margin-left:5px;}
+form input[type=submit] {width:100px;height:32px;border:none;margin-top:2px;background:#212121;color:#d3d3d3;box-shadow:0 1px 1px #202020;
+	margin-left:4px;border-radius:2px}
+select {background:#4b4b4b;border:1px solid #313131;color:#fafafa;margin-top:10px;}
+.formbar {height:40px;bottom:0;}
+.CodeMirror{ width:100%;height:100%;margin:auto;flex-shrink:1}
+
+
+/********COPIADO********/
 h1 { letter-spacing: -3px;font-size: 3.23em; font-weight: bold; margin: 0;}
 h2 { font-size: 1.23em; font-weight: bold;margin: .5em 0; letter-spacing: -1px;}
 h3 { font-size: 1.1em;font-weight: bold; margin: .4em 0;}

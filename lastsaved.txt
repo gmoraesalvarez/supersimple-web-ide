@@ -1,0 +1,55 @@
+<?php
+session_start();
+$url='./';
+if (isset($_POST['pass'])){
+  $hash = file_get_contents('admin/z.xyz');
+  if (password_verify($_POST['pass'],$hash) && ($_POST['user'] == 'natw')){
+    $_SESSION['nat']='on';
+  }
+}
+if ($_SESSION['nat'] != 'on') {header( "Location: $url" );}
+?>
+<!doctype html>
+<html>
+    <head>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'> -->
+        <title>gmoraesalvarez - admin</title>
+        <link rel="icon" href="f.png" type="image/png">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link href="font.css" rel="stylesheet" type="text/css" >
+		    <link href="corpo.css" rel="stylesheet" type="text/css" >
+    </head>
+    <body>
+      <h1><a href='/gma'>gmoraesalvarez</a></h1>
+      <div class="links">
+        <div class="centerhead">
+          <a href="logout.php">SAIR</a>
+          <a href="nat.php?p=apps">apps</a>
+          <a href="nat.php?p=fotos">fotos</a>
+          <a href="nat.php?p=sites">sites</a>
+          <a href="nat.php?p=textos">textos</a>
+          <a href="nat.php?p=contato">contato</a>
+          <div class='submenu' id='submenu'>
+            <?php
+              echo 'sub aqui';
+            ?>
+          </div>
+        </div>
+      </div>
+      <div class='corpo'>
+        <div class='center'>
+        <?php
+          $inc='a_cont.php';
+          if (isset($_GET['p'])){
+              if ($_GET['p'] == 'apps') { $inc='a_apps.php';}
+              if ($_GET['p'] == 'fotos') { $inc='a_fotos.php';}
+              if ($_GET['p'] == 'sites') { $inc='a_sites.php';}
+              if ($_GET['p'] == 'textos') { $inc='a_textos.php';}
+              if ($_GET['p'] == 'contato') { $inc='a_contato.php';}
+          }
+          include($inc);
+        ?>
+        </div>
+      </div>
+    </body>

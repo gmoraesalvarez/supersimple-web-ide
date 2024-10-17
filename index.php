@@ -1,4 +1,14 @@
 <?php
+    session_start();
+    $url='./admin';
+    if (isset($_POST['pass'])){
+        $hash = file_get_contents('admin/z.xyz');
+        if (password_verify($_POST['pass'],$hash) && ($_POST['user'] == 'natw')){
+            $_SESSION['nat']='on';
+        }
+    }
+    if ($_SESSION['nat'] != 'on') {header( "Location: $url" );}
+
     if (isset($_GET['dir'])){$dir = $_GET['dir'];}  else {$dir='../'; }
     if ($dir=='..') {$dir='../';}
     if ($dir=='.') {$dir='../';}
@@ -10,10 +20,9 @@
         }
     $files1 = glob($dir . '*.{css,php,htm,html,js,txt,cfg}', GLOB_BRACE);
 	$dirs = glob($dir . '*', GLOB_ONLYDIR);
-    $alink = '<a class="file" target="_blank" href="edit.php?doc=';
+    $alink = '<a class="file" target="_blank" href="monaco.php?doc=';
     
 ?>
-
 <!doctype html>
 <html>
 	<head>

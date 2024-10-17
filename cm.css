@@ -1,7 +1,8 @@
 /* BASICS */
+
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
-  font-family: 'dejavu sans mono',monospace;
+  font-family: 'Source Code Pro',monospace;
 }
 .CodeMirror-scroll {
   /* Set scrolling behaviour here */
